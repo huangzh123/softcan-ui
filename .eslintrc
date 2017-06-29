@@ -1,0 +1,27 @@
+{
+    "extends": "standard",
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "plugins": [
+        "standard",
+        "promise",
+        "html"
+    ],
+    "rules": {
+        "arrow-parens": [
+            2,
+            "as-needed"
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "no-extra-bind":[
+            0
+        ],
+        "semi": 0,
+        "no-useless-escape": 0
+    }
+}
