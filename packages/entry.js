@@ -16,6 +16,7 @@ import Swipe from '../packages/swipe'
 import SwipeItem from '../packages/swipe-item'
 import Tabbar from '../packages/tabbar'
 import TabItem from '../packages/tab-item'
+import Cell from '../packages/cell'
 
 const install = function (Vue) {
     if (install.installed) return
@@ -32,6 +33,7 @@ const install = function (Vue) {
     Vue.component(SwipeItem.name, SwipeItem)
     Vue.component(Tabbar.name, Tabbar)
     Vue.component(TabItem.name, TabItem)
+    Vue.component(Cell.name, Cell)
 
     // Vue.use(Toast)
     // Vue.use(Indicator);
@@ -62,5 +64,6 @@ module.exports = {
     Swipe,
     SwipeItem,
     Tabbar,
-    TabItem
+    TabItem,
+    Cell
 }
