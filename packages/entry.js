@@ -17,6 +17,12 @@ import SwipeItem from '../packages/swipe-item'
 import Tabbar from '../packages/tabbar'
 import TabItem from '../packages/tab-item'
 import Cell from '../packages/cell'
+import TabContainerItem from '../packages/tab-container-item'
+import TabContainer from '../packages/tab-container'
+import Spinner from '../packages/spinner'
+import Range from '../packages/range'
+import Progress  from '../packages/progress'
+import Picker  from '../packages/picker'
 
 const install = function (Vue) {
     if (install.installed) return
@@ -34,6 +40,12 @@ const install = function (Vue) {
     Vue.component(Tabbar.name, Tabbar)
     Vue.component(TabItem.name, TabItem)
     Vue.component(Cell.name, Cell)
+    Vue.component(TabContainer.name, TabContainer)
+    Vue.component(TabContainerItem.name, TabContainerItem)
+    Vue.component(Spinner.name, Spinner)
+    Vue.component(Range.name, Range)
+    Vue.component(Progress.name, Progress)
+    Vue.component(Picker.name, Picker)
 
     // Vue.use(Toast)
     // Vue.use(Indicator);
@@ -65,5 +77,11 @@ module.exports = {
     SwipeItem,
     Tabbar,
     TabItem,
-    Cell
+    Cell,
+    TabContainer,
+    TabContainerItem,
+    Spinner,
+    Range,
+    Progress,
+    Picker
 }

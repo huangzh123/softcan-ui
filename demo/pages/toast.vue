@@ -1,39 +1,66 @@
 <template>
-    <div>
-        <div class="title">
-            <h3 class="yun-h3">提示 Toast</h3>
-            <p>YunUI 提供了两种提示样式，一种是位于中间的 <strong>图文提示</strong>，
-                一种是位于 <strong>底部</strong> 的文字提示。</p>
+    <div id="toast">
+        <h1>默认信息</h1>
+        <div class="item">
+            <mt-button @click="m1">点我弹出提示信息</mt-button>
         </div>
-        <div class="content button-container">
-            <y-button type="linear" @click="showToast">图文提示</y-button>
-            <y-button type="linear" @click="showToastBottom">底部提示</y-button>
+        <h1>带有图标的信息</h1>
+        <div class="item">
+            <mt-button @click="m2">点我弹出带有ICON的信息</mt-button>
         </div>
+        <h1>设置信息的显示时长</h1>
+        <div class="item">
+            <mt-button @click="m3">点我弹出停留5秒的提示信息</mt-button>
+        </div>
+        <h1>信息显示的位置</h1>
+        <div class="item">
+            <mt-button @click="m4">点我弹出提示信息（顶部）</mt-button>
+            <mt-button @click="m5">点我弹出提示信息（底部）</mt-button>
+        </div>
+
+
     </div>
 </template>
 
 <script>
+    import {Toast} from 'mint-ui'
     export default {
-        name: 'y-toast-demo',
-        props: {},
-        data: function () {
-            return {}
+        data(){
+            return{
+
+            }
         },
+        props: {},
         created () {
             console.log('button demo loaded')
         },
         methods: {
-            showToast: function () {
-                this.$toast({
-                    content: '操作成功',
-                    icon: 'success'
-                })
+            m1(){
+                Toast('提示信息');
             },
-            showToastBottom: function () {
-                this.$toast({
-                    content: '操作成功',
-                    position: 'bottom'
-                })
+            m2(){
+                Toast({
+                    message: '带图标的提示信息',
+                    iconClass: 'icon icon-success'
+                });
+            },
+            m3(){
+                Toast({
+                    message: '这条信息会停留5秒哦',
+                    duration: 5000
+                });
+            },
+            m4(){
+                Toast({
+                    message: '我在顶部显示的',
+                    position:'top'
+                });
+            },
+            m5(){
+                Toast({
+                    message: '我在底部显示的',
+                    position:'bottom'
+                });
             }
         }
     }
@@ -41,5 +68,29 @@
 </script>
 
 <style lang="less">
-
+    #toast h1{
+        height: 44px;
+        line-height: 44px;
+        padding-left: 20px;
+        font-size: 15px;
+        color: #858585;
+        font-weight: 600;
+        border-bottom: 1px solid #eaeaea;
+        margin:10px 20px 15px 10px;
+        /*margin-right: 30px;*/
+    }
+    #toast>.item{
+        padding: 5px 20px 5px 20px;
+        box-sizing: border-box;
+    }
+    #toast>.item>button{
+        margin: 5px 0;
+    }
+    .icon-success{
+        height: 30px;
+        width: 30px;
+        margin: auto;
+        background: url('../assets/base.png');
+        background-size: contain;
+    }
 </style>

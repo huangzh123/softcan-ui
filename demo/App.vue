@@ -80,6 +80,7 @@
         overflow: hidden;
         font-size: 16px;
         font-weight: 600;
+        background-color: #eaeff3;
     }
 
     .softcan-menu>a:nth-child(2)>.mint-cell-wrapper{

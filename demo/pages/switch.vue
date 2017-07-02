@@ -1,36 +1,63 @@
 <template>
-    <div>
-        <div class="title">
-            <h3 class="yun-h3">开关 Switch</h3>
-            <p>YunUI提供统一的开关，可以满足无默认及默认列表开关场景</p>
+    <div id="switch">
+        <h1>默认</h1>
+        <div class="item">
+            <mt-switch v-model="value1"></mt-switch><span>{{value1}}</span>
         </div>
-        <div class="content form">
-            <div class="row clearContentPadding">
-                <y-form>
-                    <y-switch label="开关列表"></y-switch>
-                    <y-switch label="开关列表 默认勾选" checked></y-switch>
-                </y-form>
-            </div>
+        <div class="item">
+            <mt-switch v-model="value2"></mt-switch><span>{{value2}}</span>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'y-switch-demo',
-        data () {
-            return {
-                value: true
+        data(){
+            return{
+                value1:false,
+                value2:true
             }
         },
+        props: {},
         created () {
-            console.log('switch demo loaded')
+            console.log('button demo loaded')
         },
-        methods: {}
+        methods: {
+            handleClick(){
+                alert('点击触发 handleClick')
+            }
+        }
     }
 
 </script>
 
 <style lang="less">
-
+    #switch h1{
+        height: 44px;
+        line-height: 44px;
+        padding-left: 20px;
+        font-size: 15px;
+        color: #858585;
+        font-weight: 600;
+        border-bottom: 1px solid #eaeaea;
+        margin:10px 20px 15px 10px;
+        /*margin-right: 30px;*/
+    }
+    #switch>.item{
+        padding: 5px 20px 5px 20px;
+        box-sizing: border-box;
+    }
+    #switch>.item>*{
+        margin: 2px;
+    }
+    #switch label{
+        display: inline-block;
+    }
+    #switch>.item>span{
+        display: inline-block;
+        height: 20px;
+        line-height: 20px;
+        vertical-align: super;
+        font-size: 16px;
+    }
 </style>

@@ -2,5 +2,12 @@
  * Created by Administrator on 2017/6/29.
  */
 .mint-checkbox-label{
-    float: left;
+    float: left !important;
+}
+.mint-cell-allow-right:after{
+    height: 10px !important;
+    width: 10px !important;
+}
+.mint-checkbox{
+    margin-left: 10px !important;
 }

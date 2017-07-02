@@ -1,119 +1,115 @@
 <template>
-    <div>
-        <div class="title">
-            <h3 class="yun-h3">弹窗 popup</h3>
-            <p>YunUI 提供了几种弹窗规范。</p>
+    <div id="actionSheet">
+        <h1>从左侧弹出</h1>
+        <div class="item" >
+            <mt-button type="default" @click="m1">从左侧弹出 pupup</mt-button>
         </div>
-        <div class="content button-container">
-            <y-button type="linear" @click="showPopup1 = true">确认类弹窗
-            </y-button>
-            <y-button type="linear" @click="showPopup2 = !showPopup2">输入类（单行）弹窗</y-button>
-            <y-button type="linear" @click="showPopup3 = !showPopup3">输入类（多行）弹窗</y-button>
-            <y-button type="linear" @click="showPopup4 = !showPopup4">内容带跳转按钮弹窗</y-button>
-            <y-button type="linear" @click="showPopup5 = !showPopup5">宣传弹窗</y-button>
+        <mt-popup
+            v-model="popupVisible1"
+            position="left">
+            <div class="msg-middle">从左侧弹出的信息</div>
+        </mt-popup>
+        <h1>从顶部弹出</h1>
+        <div class="item" >
+            <mt-button type="default" @click="m2">从顶部弹出 popup</mt-button>
         </div>
+        <mt-popup
+            v-model="popupVisible2"
+            position="top">
+            <div class="msg-middle">从顶部弹出的信息</div>
+        </mt-popup>
+        <h1>从右侧弹出</h1>
+        <div class="item" >
+            <mt-button type="default" @click="m3">从右侧弹出 pupup</mt-button>
+        </div>
+        <mt-popup
+            v-model="popupVisible3"
+            position="right">
+            <div class="msg-middle">从右侧弹出的信息</div>
+        </mt-popup>
+        <h1>从底部边弹出</h1>
+        <div class="item" >
+            <mt-button type="default" @click="m4">从底部弹出 pupup</mt-button>
+        </div>
+        <mt-popup
+            v-model="popupVisible4"
+            position="bottom">
+            <div class="msg-middle">从底部弹出的信息</div>
+        </mt-popup>
 
-        <y-popup title="标题" :show="showPopup1" @maskClicked="maskClicked"
-                   content="文本内容文本内容文本内容文本内容文本内容
-                            文本内容文本内容文本内容文本内容文本内容">
-            <y-button-group slot="buttonGroup" defaultActiveTabId="1">
-                <y-tab-item title="确定" tabId="1" @click="maskClicked"></y-tab-item>
-            </y-button-group>
-        </y-popup>
 
-        <y-popup title="标题" :show="showPopup2" @maskClicked="maskClicked"
-                   input="input">
-            <y-button-group slot="buttonGroup" defaultActiveTabId="1">
-                <y-tab-item title="取消" tabId="2" @click="maskClicked"></y-tab-item>
-                <y-tab-item title="确定" tabId="1" @click="maskClicked"></y-tab-item>
-            </y-button-group>
-        </y-popup>
-
-        <y-popup title="标题" :show="showPopup3" @maskClicked="maskClicked"
-                   input="textarea">
-            <y-button-group slot="buttonGroup" defaultActiveTabId="1">
-                <y-tab-item title="取消" tabId="2" @click="maskClicked"></y-tab-item>
-                <y-tab-item class="active" title="确定" tabId="1" @click="maskClicked"></y-tab-item>
-            </y-button-group>
-        </y-popup>
-
-        <y-popup title="标题" :show="showPopup4" @maskClicked="maskClicked"
-                   content="文本内容文本内容文本内容文本内容文本内容
-                            文本内容文本内容文本内容文本内容文本内容">
-            <y-button size="large" type="normal" slot="button">文本</y-button>
-            <y-button size="large" type="normal" disabled slot="button">文本</y-button>
-            <y-button-group slot="buttonGroup" defaultActiveTabId="1">
-                <y-tab-item title="知道了" tabId="1" @click="maskClicked"></y-tab-item>
-            </y-button-group>
-        </y-popup>
-
-        <y-popup title="标题" :show="showPopup5" @maskClicked="maskClicked"
-                   :textList="textListArray">
-            <img src="../assets/popup-cover.png" slot="cover"/>
-            <y-button-group slot="buttonGroup" defaultActiveTabId="2">
-                <y-tab-item title="知道了" tabId="1" @click="maskClicked"></y-tab-item>
-                <y-tab-item title="了解更多" class="active" tabId="2" @click="maskClicked"></y-tab-item>
-            </y-button-group>
-        </y-popup>
     </div>
 </template>
 
 <script>
+    import {MessageBox} from 'mint-ui'
     export default {
-        name: 'y-toast-demo',
-        props: {},
-        data: function () {
-            return {
-                showPopup1: false,
-                showPopup2: false,
-                showPopup3: false,
-                showPopup4: false,
-                showPopup5: false,
-                textListArray: [
-                    {
-                        content: '这是一段文本'
-                    },
-                    {
-                        content: '这是一段文本这是一段文本'
-                    },
-                    {
-                        content: '这是一段文本这是一段文本这是一段文本这是一段文本'
-                    }
-                ]
+        data(){
+            return{
+                popupVisible1:false,
+                popupVisible2:false,
+                popupVisible3:false,
+                popupVisible4:false,
             }
         },
+        props: {},
         created () {
             console.log('button demo loaded')
         },
         methods: {
-            maskClicked: function () {
-                this.showPopup1 = false
-                this.showPopup2 = false
-                this.showPopup3 = false
-                this.showPopup4 = false
-                this.showPopup5 = false
+            m1(){
+                this.popupVisible1 = true;
+            },
+            m2(){
+                this.popupVisible2 = true;
+            },
+            m3(){
+                this.popupVisible3 = true;
+            },
+            m4(){
+                this.popupVisible4 = true;
             }
         }
     }
 
 </script>
 
-<style lang="less" rel="stylesheet/less">
-    .close-popup {
-        position: fixed;
-        z-index: 10;
-        color: #ffffff;
-        right: 12px;
-        top: 12px;
-        width: 44px;
+<style lang="less">
+    #actionSheet h1{
         height: 44px;
-        border-radius: 50%;
         line-height: 44px;
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.2);
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-        }
+        padding-left: 20px;
+        font-size: 15px;
+        color: #858585;
+        font-weight: 600;
+        border-bottom: 1px solid #eaeaea;
+        margin:10px 20px 15px 10px;
+        /*margin-right: 30px;*/
     }
+    #actionSheet>.item{
+        padding: 5px 20px 5px 20px;
+        box-sizing: border-box;
+    }
+
+.mint-popup-left,.mint-popup-right{
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+
+    .mint-popup-top,.mint-popup-bottom{
+        height: 100px;
+        width: 100%;
+        overflow: hidden;
+    }
+    .msg-middle{
+        width:100%;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-size: 15px;
+        color: #333;
+
+    }
+
 </style>

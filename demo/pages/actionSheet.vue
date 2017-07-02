@@ -1,146 +1,83 @@
 <template>
-    <div>
-        <div class="title">
-            <h3 class="yun-h3">操作面板 ActionSheet</h3>
-            <p>YunUI 提供一组底部弹出操作面板组件。</p>
+    <div id="actionSheet">
+        <h1>默认选择框</h1>
+        <div class="item" >
+            <mt-button type="default" @click="m1">打开默认选择框</mt-button>
         </div>
-        <div class="content button-container">
-            <y-button type="linear" @click="toggleActionPanel">面板型</y-button>
-            <y-button type="linear" @click="toggleActionList">列表型</y-button>
-            <y-button type="linear" @click="toggleActionCheckbox">选项型</y-button>
+        <mt-actionsheet
+            :actions="actions1"
+            v-model="sheetVisible1">
+        </mt-actionsheet>
+        <h1>不带取消按钮的选择框</h1>
+        <div class="item"  >
+            <mt-button type="default" @click="m2">打开不带取消按钮的选择框</mt-button>
         </div>
-        <y-action-sheet type="panel" panelTitle="分享到" :actionSheetItem="actionSheetPanelItem"
-                          @maskClicked="maskClicked" :show="showActionPanel" @cancel="maskClicked">
-        </y-action-sheet>
-        <y-action-sheet type="list" @maskClicked="maskClicked" :show="showActionList"
-                          @cancel="maskClicked" :actionSheetItem="actionSheetPanelItem">
-        </y-action-sheet>
-        <y-action-sheet type="checkbox" @maskClicked="maskClicked" @confirm="maskClicked" @change="actionSheetChange"
-                          @cancel="maskClicked" :show="showActionCheckbox" :actionSheetItem="actionSheetCheckboxItem">
-        </y-action-sheet>
+        <mt-actionsheet
+            :actions="actions2"
+            cancelText=""
+            v-model="sheetVisible2">
+        </mt-actionsheet>
+        <h1>强制选择</h1>
+        <div class="item"  >
+            <mt-button type="default" @click="m3">点击选择框以外的区域也不能取消</mt-button>
+        </div>
+        <mt-actionsheet
+            :actions="actions3"
+            cancelText=""
+            :closeOnClickModal="false"
+            v-model="sheetVisible3">
+        </mt-actionsheet>
+
     </div>
 </template>
 
 <script>
+    import {MessageBox} from 'mint-ui'
     export default {
-        name: 'y-action-sheet-demo',
-        props: {},
-        data () {
-            return {
-                actionSheetPanelItem: [
-                    {
-                        title: '微信',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '同事圈',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '收藏',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '上传电脑',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '转发',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '其他应用',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    }
+        data(){
+            return{
+                actions1:[
+                    {name:'选项1',method:()=>{
+                        alert('你选择了"选项1"')
+                    }},
+                    {name:'选项2',method:()=>{
+                        alert('你选择了"选项2"')
+                    }},
                 ],
-                actionSheetCheckboxItem: [
-                    {
-                        title: '微信',
-                        icon: require('../assets/placeholder-figure.png'),
-                        checked: true,
-                        value: 'wechat',
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '同事圈',
-                        icon: require('../assets/placeholder-figure.png'),
-                        value: 'group',
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '收藏',
-                        icon: require('../assets/placeholder-figure.png'),
-                        value: 'favorite',
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '上传到电脑',
-                        checked: true,
-                        value: 'upload',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '转发',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    },
-                    {
-                        title: '其他应用打开',
-                        icon: require('../assets/placeholder-figure.png'),
-                        callback: this.actionItemClick
-                    }
+                actions2:[
+                    {name:'选项1',method:()=>{
+                        alert('你选择了"选项1"')
+                    }},
+                    {name:'选项2',method:()=>{
+                        alert('你选择了"选项2"')
+                    }},
                 ],
-                showActionPanel: false,
-                showActionList: false,
-                showActionCheckbox: false
+                actions3:[
+                    {name:'选项1',method:()=>{
+                        alert('你选择了"选项1"')
+                    }},
+                    {name:'选项2',method:()=>{
+                        alert('你选择了"选项2"')
+                    }},
+                ],
+                sheetVisible1:false,
+                sheetVisible2:false,
+                sheetVisible3:false,
             }
         },
+        props: {},
         created () {
-            console.log('action sheet demo loaded')
+            console.log('button demo loaded')
         },
         methods: {
-            toggleLoading: function () {
-                this.showLoading = !this.showLoading
+            m1(){
+                this.sheetVisible1 = true;
             },
-            toggleActionPanel: function () {
-                this.showActionPanel = !this.showActionPanel
+            m2(){
+                this.sheetVisible2 = true;
             },
-            toggleActionList: function () {
-                this.showActionList = !this.showActionList
-            },
-            toggleActionCheckbox: function () {
-                this.showActionCheckbox = !this.showActionCheckbox
-            },
-            maskClicked: function () {
-                console.log('mask clicked')
-                this.showActionList = false
-                this.showActionCheckbox = false
-                this.showActionPanel = false
-                this.showPop = false
-            },
-            formCounterChange: function (value) {
-                console.log(value)
-            },
-            switchFormChange: function (value) {
-                console.log(value)
-            },
-            checkboxChange: function (value, status) {
-                console.log(value)
-                console.log(status)
-            },
-            actionItemClick: function () {
-                console.log('action item clicked')
-            },
-            actionSheetChange: function (value, status) {
-                console.log(value)
-                console.log(status)
+            m3(){
+                this.sheetVisible3 = true;
             }
         }
     }
@@ -148,5 +85,21 @@
 </script>
 
 <style lang="less">
+    #actionSheet h1{
+        height: 44px;
+        line-height: 44px;
+        padding-left: 20px;
+        font-size: 15px;
+        color: #858585;
+        font-weight: 600;
+        border-bottom: 1px solid #eaeaea;
+        margin:10px 20px 15px 10px;
+        /*margin-right: 30px;*/
+    }
+    #actionSheet>.item{
+        padding: 5px 20px 5px 20px;
+        box-sizing: border-box;
+    }
+
 
 </style>

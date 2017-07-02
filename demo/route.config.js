@@ -1,85 +1,25 @@
 export default [
     {
         'title': {
-            'main': '基础样式',
-            'secondary': 'Basic CSS',
+            'main': 'CSS 组件',
+            'secondary': 'CSS Component',
             'icon': require('./assets/base.png')
         },
         'list': [
             {
-                'path': '/color',
-                'name': 'Color',
-                'secondary': '颜色 '
-            },
-            {
-                'path': '/layout',
-                'name': 'Layout',
-                'secondary': '布局 '
-            },
-            {
-                'path': '/utility',
-                'name': 'Utility',
-                'secondary': '辅助类 '
-            },
-            {
-                'path': '/typography',
-                'name': 'Typography',
-                'secondary': '文字排版 '
-            },
-            // 外层path要写成/pathName形式，它的children子路由要只写名称，要保证url路径名，文件资源名与path名称三者统一
-            {
-                'path': '/statePage',
-                'name': 'StatePage',
-                'secondary': '状态页 ',
-                'children': [
-                    {
-                        'path': 'index',
-                        'name': 'StateIndex'
-                    },
-                    {
-                        'path': 'statePage1',
-                        'name': 'StatePage1'
-                    },
-                    {
-                        'path': 'statePage2',
-                        'name': 'StatePage2'
-                    },
-                    {
-                        'path': 'statePage3',
-                        'name': 'StatePage3'
-                    },
-                    {
-                        'path': 'statePage4',
-                        'name': 'StatePage4'
-                    },
-                    {
-                        'path': 'statePage5',
-                        'name': 'StatePage5'
-                    },
-                    {
-                        'path': 'statePage6',
-                        'name': 'StatePage6'
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        'title': {
-            'main': 'CSS 组件',
-            'secondary': 'CSS Component',
-            'icon': require('./assets/CSS.png')
-        },
-        'list': [
-            {
-                'path': '/navbar',
-                'name': 'Navbar',
-                'secondary': '顶部导航 '
+                'path': '/header',
+                'name': 'Header',
+                'secondary': '标题栏 '
             },
             {
                 'path': '/tabbar',
                 'name': 'Tabbar',
-                'secondary': '底部导航 '
+                'secondary': '工具栏 '
+            },
+            {
+                'path': '/navbar',
+                'name': 'Navbar',
+                'secondary': '分页栏 '
             },
             {
                 'path': '/button',
@@ -87,77 +27,82 @@ export default [
                 'secondary': '按钮 '
             },
             {
-                'path': '/buttonGroup',
-                'name': 'ButtonGroup',
-                'secondary': '按钮组 '
+                'path': '/cell',
+                'name': 'Cell',
+                'secondary': '单元格 '
             },
             {
-                'path': '/list',
-                'name': 'List',
-                'secondary': '列表 '
+                'path': '/spinner',
+                'name': 'Spinner',
+                'secondary': '过渡动画 '
             },
-            {
-                'path': '/badge',
-                'name': 'Badge',
-                'secondary': '徽章 '
-            }
         ]
     },
     {
         'title': {
             'main': 'JS 组件',
             'secondary': 'JS Component',
-            'icon': require('./assets/JS.png')
+            'icon': require('./assets/CSS.png')
         },
         'list': [
             {
-                'path': '/loading',
-                'name': 'Loading',
-                'secondary': '加载 '
-            },
-            {
                 'path': '/toast',
                 'name': 'Toast',
-                'secondary': '提示 '
+                'secondary': '提示框 '
+            },
+            {
+                'path': '/messageBox',
+                'name': 'Message Box',
+                'secondary': '弹出框 '
+            },
+            {
+                'path': '/actionSheet',
+                'name': 'Action Sheet',
+                'secondary': '选择框 '
             },
             {
                 'path': '/popup',
                 'name': 'Popup',
-                'secondary': '弹窗 '
+                'secondary': '模态框 '
             },
             {
-                'path': '/actionSheet',
-                'name': 'ActionSheet',
-                'secondary': '操作面板 '
+                'path': '/swipe',
+                'name': 'Swipe',
+                'secondary': '轮播图 '
             },
             {
-                'path': '/search',
-                'name': 'Search',
-                'secondary': '搜索 '
-            }
+                'path': '/range',
+                'name': 'Range',
+                'secondary': '范围 '
+            },
+            {
+                'path': '/process',
+                'name': 'Process',
+                'secondary': '进度条 '
+            },
+            {
+                'path': '/picker',
+                'name': 'Picker',
+                'secondary': '下拉选择 '
+            },
         ]
     },
     {
         'title': {
-            'main': '表单组件',
-            'secondary': 'Form Component',
-            'icon': require('./assets/form.png')
+            'main': 'Form表单',
+            'secondary': 'Form',
+            'icon': require('./assets/JS.png')
         },
         'list': [
             {
-                'path': '/checkbox',
-                'name': 'Checkbox',
+                'path': '/switch',
+                'name': 'Switch',
+                'secondary': '开关 '
+            },
+            {
+                'path': '/checklist',
+                'name': 'Checklist',
                 'secondary': '复选框 '
-            },
-            {
-                'path': '/counter',
-                'name': 'Counter',
-                'secondary': '计数器 '
-            },
-            {
-                'path': '/input',
-                'name': 'Input',
-                'secondary': '单行输入框 '
             },
             {
                 'path': '/radio',
@@ -165,14 +110,9 @@ export default [
                 'secondary': '单选框 '
             },
             {
-                'path': '/switch',
-                'name': 'Switch',
-                'secondary': '开关 '
-            },
-            {
-                'path': '/textarea',
-                'name': 'Textarea',
-                'secondary': '多行输入框 '
+                'path': '/field',
+                'name': 'Field',
+                'secondary': '文本框 '
             }
         ]
     }

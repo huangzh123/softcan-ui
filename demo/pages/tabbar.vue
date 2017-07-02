@@ -1,30 +1,59 @@
 <template>
-    <div>
-        <y-tabbar @change="tabChange" defaultActiveTabId="2">
-            <y-tab-item title="文本" tabId="1"><i class="iconfont icon-demo" slot="icon"></i></y-tab-item>
-            <y-tab-item title="文本" tabId="2"><i class="iconfont icon-demo" slot="icon"></i></y-tab-item>
-            <y-tab-item title="文本" tabId="3"><i class="iconfont icon-demo" slot="icon"></i></y-tab-item>
-            <y-tab-item title="文本" tabId="4"><i class="iconfont icon-demo" slot="icon"></i></y-tab-item>
-        </y-tabbar>
+    <div id="tabbar">
+        <div class="item">
+            <mt-tabbar v-model="selected">
+                <mt-tab-item id="外卖">
+                    <img slot="icon" src="../assets/base.png">
+                    外卖
+                </mt-tab-item>
+                <mt-tab-item id="订单">
+                    <img slot="icon" src="../assets/base.png">
+                    订单
+                </mt-tab-item>
+                <mt-tab-item id="发现">
+                    <img slot="icon" src="../assets/base.png">
+                    发现
+                </mt-tab-item>
+                <mt-tab-item id="我的">
+                    <img slot="icon" src="../assets/base.png">
+                    我的
+                </mt-tab-item>
+            </mt-tabbar>
+        </div>
+        <div class="item">
+            <mt-tabbar v-model="selected">
+                <mt-tab-item id="发现2" >
+                    <img slot="icon" src="../assets/base.png">
+                    发现
+                </mt-tab-item>
+                <mt-tab-item id="我的2">
+                    <img slot="icon" src="../assets/base.png">
+                    我的
+                </mt-tab-item>
+                <mt-tab-item id="我的3">
+                    <img slot="icon" src="../assets/base.png">
+                    我的
+                </mt-tab-item>
+            </mt-tabbar>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'y-tabbar-demo',
         props: {},
         created () {
-            console.log('tabbar demo loaded')
+            console.log('button demo loaded')
         },
-        methods: {
-            tabChange: function (tabId) {
-                console.log(tabId)
-            }
-        }
+        methods: {}
     }
 
 </script>
 
-<style lang="css" scoped>
-
+<style lang="less">
+    #tabbar>.item{
+        height: 90px;
+        position: relative;
+        margin-top: 20px;
+    }
 </style>
