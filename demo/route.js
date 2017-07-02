@@ -35,5 +35,9 @@ route.route.push({
     path: '/',
     component: require('./App.vue')
 })
+route.route.push({
+    path: '/*',
+    redirect: '/'
+})
 
 export default route
